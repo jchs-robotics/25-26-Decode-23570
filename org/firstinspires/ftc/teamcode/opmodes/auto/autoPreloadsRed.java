@@ -20,8 +20,12 @@ public class autoPreloadsRed extends OpMode {
     private DriveSubsystem driveSubsystem;
     private ShooterSubsystem shooterSubsystem;
 
+
+    // Timer
     private final ElapsedTime timer = new ElapsedTime();
 
+
+    // Initialization
     @Override
     public void init() {
         // Initialize all subsystems
@@ -41,11 +45,15 @@ public class autoPreloadsRed extends OpMode {
         telemetry.update();
     }
 
+
+    // Start
     @Override
     public void start() {
-        timer.reset(); // Start the timer when the match begins
+        timer.reset();  // Start the timer when the match begins
     }
 
+
+    // Main Loop
     @Override
     public void loop() {
         double elapsed = timer.seconds();
@@ -57,7 +65,7 @@ public class autoPreloadsRed extends OpMode {
             shooterSubsystem.stopShooter();
         }
 
-        // --- Index and Intake sequence ---
+        // --- Index and Intake Sequence ---
         if (elapsed < 5) {
             // 0–5 sec: Shooter only
             indexSubsystem.stopIndex();
@@ -113,17 +121,22 @@ public class autoPreloadsRed extends OpMode {
             intakeSubsystem.stopIntake();
         }
 
-        // --- Telemetry ---
+
+        // Telemetry
         telemetry.addData("Time", "%.1f sec", elapsed);
         telemetry.addData("Shooter", elapsed < 30 ? "ON" : "OFF");
         telemetry.addData("Index",
-                (elapsed >= 5 && elapsed < 6.5) || (elapsed >= 11.5 && elapsed < 14.5) || (elapsed >= 21 && elapsed < 25)
+                (elapsed >= 5 && elapsed < 6.5)
+                        || (elapsed >= 11.5 && elapsed < 14.5)
+                        || (elapsed >= 21 && elapsed < 25)
                         ? "ON" : "OFF");
         telemetry.addData("Intake", (elapsed >= 19.5 && elapsed < 21) ? "ON" : "OFF");
         telemetry.addData("Drive", (elapsed >= 25 && elapsed < 27) ? "DRIVING" : "STOPPED");
         telemetry.update();
     }
 
+
+    // Stop
     @Override
     public void stop() {
         // Stop everything just in case
@@ -133,4 +146,3 @@ public class autoPreloadsRed extends OpMode {
         driveSubsystem.Drive(0, 0, 0, 0);
     }
 }
-
