@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.components.subsystems.IntakeSubsystem;
 import org.firstinspires.ftc.teamcode.components.subsystems.ShooterSubsystem;
 import org.firstinspires.ftc.teamcode.components.subsystems.TurretSubsystem;
 
-@Autonomous(name = "Auto Taxi")
+@Autonomous(name = "Auto Taxi Far Wall")
 public class autoTaxi extends CommandOpMode {
 
     private IndexSubsystem indexSubsystem;
