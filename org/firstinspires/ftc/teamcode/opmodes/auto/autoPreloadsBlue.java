@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.components.subsystems.TurretSubsystem;
  * Autonomous program for running preloaded shooting sequence on the BLUE alliance side.
  * <p>
  * This routine controls the shooter, indexer, intake, and drive subsystems
- * through a timed sequence to shoot preloaded rings during autonomous.
+ * through a timed sequence to shoot preloaded artifacts during autonomous.
  */
 @Autonomous(name = "Auto Preloads Blue")
 //@Disabled
