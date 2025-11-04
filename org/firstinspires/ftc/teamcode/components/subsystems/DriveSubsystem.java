@@ -69,7 +69,7 @@ public class DriveSubsystem extends SubsystemBase {
         imu.resetYaw();
     }
 
-    // 🧭 FIELD-CENTRIC DRIVE CONTROL
+    // FIELD-CENTRIC DRIVE CONTROL
     public void fieldCentricDrive(double inputX, double inputY, double inputRX) {
         double botHeading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
 
