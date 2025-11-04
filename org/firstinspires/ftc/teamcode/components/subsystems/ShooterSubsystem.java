@@ -13,7 +13,7 @@ public class ShooterSubsystem extends SubsystemBase {
     // --- goBILDA 5204 Yellow Jacket 3.7:1 Motor ---
     private static final double TICKS_PER_REV = 103.8; // 28 * 3.7 (from goBILDA specs)
     private static final double GEAR_RATIO = 1.0;      // Adjust if extra gearing added
-    private static final double RPM_TO_TICKS_PER_SEC = (TICKS_PER_REV * GEAR_RATIO) / 60.0;
+    private static final double RPM_TO_TICKS_PER_SEC = (TICKS_PER_REV * GEAR_RATIO) / 60.0; 
 
     private double targetRPM = 0.0;
 
@@ -70,4 +70,5 @@ public class ShooterSubsystem extends SubsystemBase {
     public void initializeShooter() {
     }
 }
+
 
