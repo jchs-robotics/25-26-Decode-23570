@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class TurretSubsystem extends SubsystemBase {
 
     private final DcMotorEx turretMotor;
-    private final ElapsedTime timer = new ElapsedTime();
+    private final ElapsedTime timer = new ElapsedTime(); 
 
     // --- Motor and mechanical constants ---
     private static final double TICKS_PER_REV = 537.6;  // e.g., GoBilda 5202-0002-0027 motor
