@@ -92,7 +92,7 @@ public class teleop extends CommandOpMode {
     public void run() {
         CommandScheduler.getInstance().run();
 
-        // 🧭 --- FIELD-CENTRIC DRIVE ---
+        // --- FIELD-CENTRIC DRIVE ---
         if (gamepad1.start) driveSubsystem.resetYaw(); // re-zero orientation
 
         double x = driveController.getLeftX();
