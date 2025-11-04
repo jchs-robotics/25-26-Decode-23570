@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class IndexSubsystem extends SubsystemBase {
 
     private final DcMotor indexMotor;
-    private double indexPower = 0.0;
+    private double indexPower = 0.0; 
 
     public IndexSubsystem(final HardwareMap hMap, final String indexMotorName) {
         indexMotor = hMap.get(DcMotor.class, indexMotorName);
@@ -52,3 +52,4 @@ public class IndexSubsystem extends SubsystemBase {
     }
 
 }
+
