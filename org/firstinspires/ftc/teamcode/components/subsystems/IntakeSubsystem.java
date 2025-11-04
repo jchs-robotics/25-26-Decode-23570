@@ -7,9 +7,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class IntakeSubsystem extends SubsystemBase {
 
     // Using a GoBILDA DC motor instead of a CRServo for intake
-    private DcMotor intakeMotor;
+    private final DcMotor intakeMotor;
 
-    private double intakePower;
+    private double intakePower = 0.0;
+    private double Power;
 
     public IntakeSubsystem(final HardwareMap hMap, final String intakeName) {
         // Initialize the intake motor
@@ -49,12 +50,18 @@ public class IntakeSubsystem extends SubsystemBase {
     }
 
     public void runIntake(double power) {
+        intakeMotor.setPower(1.0);
     }
 
     public void stopIntake() {
+        setIntakePower(0);
+    }
+
+    private void setIntakePower(double i) {
 
     }
 
     public void initializeIntake() {
+
     }
 }
