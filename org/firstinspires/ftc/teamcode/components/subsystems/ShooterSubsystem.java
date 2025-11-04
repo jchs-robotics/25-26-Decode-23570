@@ -61,6 +61,10 @@ public class ShooterSubsystem extends SubsystemBase {
     }
 
     public void runShooter(double power) {
+        shooterMotor.setPower(0.95);
+    }
+
+    private void runShooterPower(double v) {
     }
 
     public void initializeShooter() {
