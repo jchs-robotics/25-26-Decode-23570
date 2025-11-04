@@ -9,7 +9,7 @@ public class IntakeSubsystem extends SubsystemBase {
     // Using a GoBILDA DC motor instead of a CRServo for intake
     private final DcMotor intakeMotor;
 
-    private double intakePower = 0.0;
+    private double intakePower = 0.0; 
     private double Power;
 
     public IntakeSubsystem(final HardwareMap hMap, final String intakeName) {
