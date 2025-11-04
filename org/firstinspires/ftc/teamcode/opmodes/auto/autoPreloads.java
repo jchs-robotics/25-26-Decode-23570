@@ -80,7 +80,7 @@ public class autoPreloads extends OpMode {
 
         // --- Shooter runs for first 30 seconds ---
         if (elapsed < 30) {
-            shooterSubsystem.runShooter(-0.95);
+            shooterSubsystem.runShooter(0.95);
         } else {
             shooterSubsystem.stopShooter();
         }
@@ -94,7 +94,7 @@ public class autoPreloads extends OpMode {
 
         } else if (elapsed < 6.5) {
             // 5–6.5 sec: Run index
-            indexSubsystem.runIndex(-1.0);
+            indexSubsystem.runIndex(1.0);
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
@@ -106,7 +106,7 @@ public class autoPreloads extends OpMode {
 
         } else if (elapsed < 14.5) {
             // 11.5–14.5 sec: Run index again
-            indexSubsystem.runIndex(-1.0);
+            indexSubsystem.runIndex(1.0);
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
@@ -124,7 +124,7 @@ public class autoPreloads extends OpMode {
 
         } else if (elapsed < 25) {
             // 21–25 sec: Run index again
-            indexSubsystem.runIndex(-1.0);
+            indexSubsystem.runIndex(1.0);
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
