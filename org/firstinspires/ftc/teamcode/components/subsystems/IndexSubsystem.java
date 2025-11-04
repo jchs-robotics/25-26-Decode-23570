@@ -29,7 +29,7 @@ public class IndexSubsystem extends SubsystemBase {
      * Stop the indexer.
      */
     public void stopIndex() {
-        setIndexPower(0);
+        setIndexPower(0.0);
     }
 
     /**
@@ -45,6 +45,7 @@ public class IndexSubsystem extends SubsystemBase {
     }
 
     public void runIndex(double power) {
+        setIndexPower(-1.0);
     }
 
     public void initializeIndex() {
