@@ -39,16 +39,15 @@ public class autoTaxiRed extends CommandOpMode {
     public void run() {
         double elapsed = timer.seconds();
 
-        if (elapsed < 5) {
+        if (elapsed < 20) {
             // Wait 20 seconds before moving
             driveSubsystem.Drive(0, 0, 0, 0);
-        } else if (elapsed < 7) {
+        } else if (elapsed < 22) {
             // Drive forward for 2 seconds after waiting
-            driveSubsystem.Drive(0.3, -0.3, -0.3, 0.3);
+            driveSubsystem.Drive(-0.3, 0.3, 0.3, -0.3);
         } else {
             // Stop after driving
             driveSubsystem.Drive(0, 0, 0, 0);
         }
     }
 }
-
