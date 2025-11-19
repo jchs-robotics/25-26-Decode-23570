@@ -85,57 +85,85 @@ public class autoPreloads extends OpMode {
             shooterSubsystem.stopShooter();
         }
 
+        // Drive forward for 1 second
+        if (elapsed < 1) {
+            // Wait 20 seconds before moving
+            driveSubsystem.Drive(0, 0, 0, 0);
+        } else if (elapsed < 3) {
+            // Drive forward for 1 seconds after waiting
+            driveSubsystem.Drive(1.0, 1.0, 1.0, 1.0);
+        } else {
+            // Stop after driving
+            driveSubsystem.Drive(0, 0, 0, 0);
+        }
+
         // --- Index and Intake timed sequence ---
-        if (elapsed < 5) {
+        if (elapsed < 4.0) {
             // 0–5 sec: Shooter only
             indexSubsystem.stopIndex();
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 6.5) {
+        } else if (elapsed < 5.0) {
             // 5–6.5 sec: Run index
-            indexSubsystem.runIndex(1.0);
+            indexSubsystem.runIndex(0.05);
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 11.5) {
+        } else if (elapsed < 5.10) {
             // 6.5–11.5 sec: Stop index
             indexSubsystem.stopIndex();
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 14.5) {
+        } else if (elapsed < 10.0) {
             // 11.5–14.5 sec: Run index again
             indexSubsystem.runIndex(1.0);
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 19.5) {
+        } else if (elapsed < 13.0) {
             // 14.5–19.5 sec: Stop index
             indexSubsystem.stopIndex();
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 21) {
+        } else if (elapsed < 15.0) {
             // 19.5–21 sec: Run intake
             intakeSubsystem.runIntake(-1.0);
             indexSubsystem.stopIndex();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 25) {
+        } else if (elapsed < 17.0) {
             // 21–25 sec: Run index again
             indexSubsystem.runIndex(1.0);
             intakeSubsystem.stopIntake();
             driveSubsystem.Drive(0, 0, 0, 0);
 
-        } else if (elapsed < 27) {
-            // 25–27 sec: Drive backward
-            driveSubsystem.Drive(-0.3, -0.3, -0.3, -0.3);
-            indexSubsystem.stopIndex();
+        } else if (elapsed < 23.0) {
+            // Stop intake
             intakeSubsystem.stopIntake();
+            indexSubsystem.stopIndex();
+            driveSubsystem.Drive(0, 0, 0, 0);
+
+        } else if (elapsed < 24.0) {
+            // Drive forward for 0.5 seconds
+            driveSubsystem.Drive(1.0, 1.0, 1.0, 1.0);
+
+        } else if (elapsed < 24.5) {
+            // stop
+            driveSubsystem.Drive(0, 0, 0, 0);
+
+        } else if (elapsed < 25.0) {
+            // turn
+            driveSubsystem.Drive(1.0, 1.0, 1.0, 1.0);
+
+        } else if (elapsed <25.5) {
+            // stop
+            driveSubsystem.Drive(0, 0, 0, 0);
 
         } else {
-            // 27–30 sec: Stop everything
+            // stop everything
             driveSubsystem.Drive(0, 0, 0, 0);
             indexSubsystem.stopIndex();
             intakeSubsystem.stopIntake();
@@ -145,12 +173,12 @@ public class autoPreloads extends OpMode {
         telemetry.addData("Time", "%.1f sec", elapsed);
         telemetry.addData("Shooter", elapsed < 30 ? "ON" : "OFF");
         telemetry.addData("Index",
-                (elapsed >= 5 && elapsed < 6.5)
-                        || (elapsed >= 11.5 && elapsed < 14.5)
+                (elapsed >= 5 && elapsed < 5.1)
+                        || (elapsed >= 10.0 && elapsed < 13.0)
                         || (elapsed >= 21 && elapsed < 25)
                         ? "ON" : "OFF");
-        telemetry.addData("Intake", (elapsed >= 19.5 && elapsed < 21) ? "ON" : "OFF");
-        telemetry.addData("Drive", (elapsed >= 25 && elapsed < 27) ? "DRIVING" : "STOPPED");
+        telemetry.addData("Intake", (elapsed >= 14.0 && elapsed < 20) ? "ON" : "OFF");
+        telemetry.addData("Drive", (elapsed >= 25 && elapsed < 25.5) ? "DRIVING" : "STOPPED");
         telemetry.update();
     }
 
